@@ -18,10 +18,10 @@ class UserDB(object):
 		return user_id
 	
 	def update_user(self, user_id, user):
-		try:
+		if user_id in self.users:
 			self.users[user_id] = user
 			return "user updated"
-		except Exception as e:
+		else:
 			return "user not found"
 
 	def delete_user(self, user_id):
