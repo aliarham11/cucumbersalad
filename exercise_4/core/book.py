@@ -4,9 +4,6 @@ class BookShelf(object):
 
 	def __init__(self) -> None:
 		super().__init__()
-
-	def __init__(self) -> None:
-		super().__init__()
 		self.books = {}
 	
 	def get_book(self, book_id):
@@ -21,10 +18,10 @@ class BookShelf(object):
 		return book_id
 	
 	def update_book(self, book_id, book):
-		try:
+		if book_id in self.books:
 			self.books[book_id] = book
 			return "book updated"
-		except Exception as e:
+		else:
 			return "book not found"
 
 	def delete_book(self, book_id):
